@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+#nav {
+	top: 80px;
+}
+
+#lion {
+	width: 10em;
+}
+
+#answer {
+	color: #DB3C00
+}

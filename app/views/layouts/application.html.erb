@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lionoverflow</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>Lionoverflow</title>
+	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+	<nav class="navbar navbar-expand navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-  <body>
-    <%= yield %>
-  </body>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarsExample02">
+			<ul class="navbar-nav mr-auto justify-content-end">
+				<li>
+					<%= link_to("Ingresar", "/users/sign_in", class: "nav-link active") %>
+				</li>
+				<li>
+					<%= link_to("Registrarse", "/users/sign_up", class: "nav-link active") %>
+				</li>
+				      
+			</ul>
+			<form class="form-inline my-2 my-md-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<a><%= link_to "<span class='ion-power'></span>".html_safe, "/users/sign_out", :method => :delete, title:"Cerrar Sesión", class: "text-white h2 nav-link active" %>
+				</a>    
+			</form>
+		</div>
+	</nav>
+	
+	<div id="nav" class="container">
+		<%= yield %>	
+	</div>	
+</body>
 </html>
