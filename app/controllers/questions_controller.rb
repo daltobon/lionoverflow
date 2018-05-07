@@ -2,11 +2,7 @@ class QuestionsController < ApplicationController
 	  before_action :authenticate_user!, :except => [:index, :show,]
 
 	  def index
-	    @questions = if params[:search]
-	      Question.where("title LIKE ? OR description LIKE ?" , "%#{params[:search]}%" , "%#{params[:search]}%")
-	    else
-	      @questions = Question.all
-	    end
+	     @questions = Question.all
 	  end
 
 	  def show
@@ -55,7 +51,7 @@ class QuestionsController < ApplicationController
 	end
 
 	private 
-	def question_params
+	def questions_params
 		params.require(:question).permit(:title, :description, :id)
 	end
 end
