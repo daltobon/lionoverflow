@@ -11,7 +11,7 @@
 
 <body>
 	<nav class="navbar navbar-expand navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Home</a>
+		<a class="navbar-brand" href="/">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -34,7 +34,14 @@
 			</form>
 		</div>
 	</nav>
-	
+
+	<!--FLASH NOTICE-->
+	<div class="alert-primary">
+	  <%  flash.each do |alert, msg| %>
+	  <%= content_tag(:div, msg, class: "small text-center alert alert-#{alert}" ) %>
+	  <% end %>
+	</div>
+
 	<div id="nav" class="container">
 		<%= yield %>	
 	</div>	
