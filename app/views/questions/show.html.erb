@@ -3,7 +3,7 @@
 </div>
 
 <div>
-	<% if signed_in? && @quesion.user == current_user %>
+	<% if signed_in? && @question.user == current_user %>
 	<div class="text-center">
 		<%= link_to "Editar", edit_question_url, class: 'btn btn-success btn-sm btn-block col-lg-3 mx-auto mb-3' %>
 	</div>
