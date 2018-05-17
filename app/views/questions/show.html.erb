@@ -1,2 +1,19 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<div class="text-sucess text-center">
+	<h3>Question #<%= @question.id %></h3>
+</div>
+
+<div>
+	<% if signed_in? && @quesion.user == current_user %>
+	<div class="text-center">
+		<%= link_to "Editar", edit_question_url, class: 'btn btn-success btn-sm btn-block col-lg-3 mx-auto mb-3' %>
+	</div>
+	<% elsif signed_in? && @question.user != current_user %>
+	<div class="text-center">
+		<%= link_to "Responder", {:anchor => "respuesta"}, class: 'btn btn-success btn-sm btn-block col-lg-3 mx-auto' %>
+	</div>
+	<% else %>
+	<div class="text-center">
+		<% link_to "Responder", new_user_session_url, class: "btn btn-success btn-sm btn-block col-lg-3 mx-auto mx-auto mb-3" %>
+	</div>
+	<% end %>	
+</div>
