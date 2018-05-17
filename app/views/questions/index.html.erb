@@ -10,29 +10,46 @@
 
     <div class="text-center col-lg-5">
      <a><%= link_to "<span class='ion-plus'></span> Formular una Pregunta".html_safe, "/questions/new", class: "btn btn-danger btn-lg btn-block" %></a><hr>
-      <div class="btn btn-info btn-sm text-center">Lions Registrados
-         <span class="badge badge-light"> <%= User.count %>  </span>
-      </div> 
-    </div>
-    <br>
-    <blockquote class="blockquote col-lg-4"><br>
-      <footer class="blockquote-footer">
-        <b>Así es como funciona:</b>
-        <ol>
-         <li>
-          Cualquiera puede formular una pregunta
-        </li>
-        <li>
-          Cualquiera puede responder
-        </li>
-        <li>
-          Se vota a favor de las mejores respuestas
-        </li>
-      </ol>
-      <div class="btn btn-light border-warning btn-block"><span class="h4 ion-stats-bars"></span>
-       <small class="col-2"><b><%= @questions.count %> </b>preguntas</small>
-       <small class="col-2"><b><%= Answer.count %> </b>respuestas</small> 
-     </div>
-   </footer>
- </blockquote>
+     <div class="btn btn-info btn-sm text-center">Lions Registrados
+       <span class="badge badge-light"> <%= User.count %>  </span>
+     </div> 
+   </div>
+   <br>
+   <blockquote class="blockquote col-lg-4"><br>
+    <footer class="blockquote-footer">
+      <b>Así es como funciona:</b>
+      <ol>
+       <li>
+        Cualquiera puede formular una pregunta
+      </li>
+      <li>
+        Cualquiera puede responder
+      </li>
+      <li>
+        Se vota a favor de las mejores respuestas
+      </li>
+    </ol>
+    <div class="btn btn-light border-warning btn-block"><span class="h4 ion-stats-bars"></span>
+     <small class="col-2"><b><%= @questions.count %> </b>preguntas</small>
+     <small class="col-2"><b><%= Answer.count %> </b>respuestas</small> 
+   </div>
+ </footer>
+</blockquote>
 </div>
+
+  <div class="container">
+    <table class="table table-sm table-hover">
+      <% @questions.each do |question| %>
+      <tbody>
+        <tr>
+          <td class="text-danger">
+            <%= question.title %>
+          </td>
+        </tr>
+         <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+
